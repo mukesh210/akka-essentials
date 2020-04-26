@@ -53,7 +53,4 @@ object ActorsIntro extends App {
 
   val personActor1 = actorSystem.actorOf(Person.props("Bobby"))
   personActor1 ! "hi"
-
-
-
 }
