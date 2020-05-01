@@ -2,6 +2,14 @@ package part4faultTolerance
 
 import akka.actor.{Actor, ActorLogging, ActorSystem, PoisonPill, Props}
 
+/**
+  * Actor Instance: Actor methods and it's state
+  * Actor Ref: Contains Actor Instance, Mailbox
+  * Actor Path: May or may not contain Actor Ref
+  *
+  * When a child actor throws an error, default supervision strategy is to restart child which means
+  * replacing actor instance... mailbox will remain same
+  */
 object ActorLifecycle extends App {
 
   object StartChild
