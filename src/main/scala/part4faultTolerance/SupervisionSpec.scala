@@ -5,6 +5,12 @@ import akka.actor.{Actor, ActorLogging, ActorRef, ActorSystem, AllForOneStrategy
 import akka.testkit.{EventFilter, ImplicitSender, TestKit}
 import org.scalatest.{BeforeAndAfterAll, WordSpecLike}
 
+/**
+  * RESTART: Actor instance would be swapped - internal state of actor will be cleared whereas mailbox will contain all messages except the one which gave error
+  * STOP: Stop the child actor and it's children
+  * RESUME: Actor instance will remain same as it is... Actor would be resumed and it will process messages next in Queue
+  * ESCALATE: Error would be escalated to Parent... Once this error reaches Guardian actor, it will restart all it's children
+  */
 class SupervisionSpec extends TestKit(ActorSystem("SupervisionSpec"))
  with ImplicitSender
  with WordSpecLike
