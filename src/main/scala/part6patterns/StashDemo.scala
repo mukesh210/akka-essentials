@@ -1,4 +1,4 @@
-package patterns
+package part6patterns
 
 import akka.actor.{Actor, ActorLogging, ActorSystem, Props, Stash}
 
