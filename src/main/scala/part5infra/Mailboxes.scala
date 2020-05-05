@@ -5,7 +5,7 @@ import akka.dispatch.{ControlMessage, PriorityGenerator, UnboundedPriorityMailbo
 import com.typesafe.config.{Config, ConfigFactory}
 
 /**
-  * Develop our own mailbox and later see how to configure default on provided by Akka
+  * Develop our own mailbox and later see how to configure default one provided by Akka
   */
 object Mailboxes extends App {
 

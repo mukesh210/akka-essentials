@@ -44,9 +44,9 @@ class SupervisionSpec extends TestKit(ActorSystem("SupervisionSpec"))
       child ! Report
       expectMsg(3)
 
-      child ! ""
+      child ! ""          // throws NullPointerException --- restart
       child ! Report
-      expectMsg(0)
+      expectMsg(0)  // internal state is cleared in Restart
     }
 
     "terminate its child in case of major error" in {
@@ -60,7 +60,7 @@ class SupervisionSpec extends TestKit(ActorSystem("SupervisionSpec"))
       assert(terminatedMessage.actor == child)
     }
 
-    "escalate an error when it does not what to do" in {
+    "escalate an error when it does not know what to do" in {
       val supervisor = system.actorOf(Props[Supervisor], "supervisor")
       supervisor ! Props[FussyWordCounter]
       val child = expectMsgType[ActorRef]

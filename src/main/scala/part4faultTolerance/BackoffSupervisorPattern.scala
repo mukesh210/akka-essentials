@@ -113,7 +113,7 @@ object BackoffSupervisorPattern extends App {
       - child eagerActor
         - will die on start with ActorInitializationException
         - trigger the supervision strategy in eagerSupervisor => STOP eagerActor
-      - backoff will kick on after 1 second, 2s, 4s, 8s, 16s, action will remain stopped after 16s
+      - backoff will kick on after 1 second, 2s, 4s, 8s, 16s
 
       when running eagerActor, run this app and rename file `important` to `important_data`
       with this... eagerActor will start normally after failing sometime
